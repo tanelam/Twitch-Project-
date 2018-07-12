@@ -162,7 +162,7 @@ ORDER BY genre
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
 
-*In this function, I used `INNER JOIN` to query data from the two tables, a table is associated with another table using a foreign key, in this case we have 'device_id'. Using `SELECT` keyword I selected the columns from the tables that I want to have in my join table. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
+*In this function, I used `INNER JOIN` to query data from the two tables, the tables are associated using foreign keys, in this case we have 'device_id'. Using `SELECT` keyword I selected the columns from the tables that I want to have in my join table. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
 
 ```sql
 SELECT stream.game,
