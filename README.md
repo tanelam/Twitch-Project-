@@ -101,6 +101,21 @@ DESC LIMIT 10;
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/6C.jpg)
 ---
 
+- Other solution for question #6
+
+By using the asterisk as an argument of `count`, as below, it returns the number of rows in a table, including the rows that contain NULL values
+
+```sql
+SELECT game,
+count(*)
+FROM stream
+GROUP BY game
+ORDER BY count(*)
+DESC;
+```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus.jpg)
+---
+
 7. There are some big numbers from the game `League of Legends` in `stream`. Where are these `League of Legend players` located?
 
     - **Hint:** Create a list.
@@ -205,21 +220,7 @@ ON stream.device_id = chat.device_id;
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/10.jpg)
 
 ---
-
-- Other solution for question #6
-
-By using the asterisk as an argument of `count`, as below, it returns the number of rows in a table, including the rows that contain NULL values
-
-```sql
-SELECT game,
-count(*)
-FROM stream
-GROUP BY game
-ORDER BY count(*)
-DESC;
-```
-![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus.jpg)
----
+## Bonus
 
 **Bonus:** Now try to find some other interesting insights using SQL!
 
@@ -258,6 +259,8 @@ VALUES
 
 ```
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus2B.jpg)
+
+![alt text](http://readme-pics.s3.amazonaws.com/Lil_Bub_2013_(crop_for_thumb).jpg)
 ---
 
 ## References
