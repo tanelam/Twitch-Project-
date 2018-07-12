@@ -1,12 +1,12 @@
 # 💥 👾 🎮 Twitch-Project 👾 🎮 💥
 
- I used [DB Browser for SQLite](https://sqlitebrowser.org/) for this assignment, for its flexibility to manipulate database files compatible with SQLite.
+ I used [DB Browser for SQLite](https://sqlitebrowser.org/) to complete this assignment, for its flexibility to manipulate database files compatible with SQLite.
 
 ## Table of Contents
 
 * [Solution](https://github.com/tanelam/Twitch-Project-#solution)
-* [References](https://github.com/tanelam/Twitch-Project-#references)
 * [Bonus](https://github.com/tanelam/Twitch-Project-#bonus)
+* [References](https://github.com/tanelam/Twitch-Project-#references)
 
 ## Solution
 
@@ -104,7 +104,7 @@ DESC LIMIT 10;
 
 - Other solution for question #6
 
-By using the asterisk as an argument of `count`, as below, it returns the number of rows in a table, including the rows that contain NULL values
+By using the asterisk as an argument of `count`, as below, it returns the number of rows in a table, including the rows that contain NULL values.
 
 ```sql
 SELECT game,
