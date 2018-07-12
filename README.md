@@ -1,1 +1,183 @@
-# Twitch-Project-
+# Twitch-Project
+
+1. `SELECT` all columns from the first 20 rows of `stream` table.
+
+```sql
+SELECT *
+FROM stream
+LIMIT 20;
+```
+
+2. `SELECT` all columns from the first 20 rows of `chat` table.
+---
+```sql
+SELECT *
+FROM chat
+LIMIT 20;
+```
+---
+
+3. There is something wrong with the `chat` table. Its 1st row is actually the column names. Delete the first row of the `chat` table.
+---
+First, I specified the table where I wanted to remove the row, in this case, the table is `chat`. Then, I added a search condition `WHERE` and I specified which row to remove. In this case, I used `WHERE time = 'time'` in order to be more specific because the values of the column 'time' are numbers and it was easier to check against the "time" string and not delete any others by accident.
+
+```sql
+DELETE
+FROM chat
+WHERE time = 'time'
+```
+---
+
+4. What are the `DISTINCT` `game` in the `stream` table?
+---
+The `DISTINCT` keyword is an optional clause of the `SELECT` statement and allows to select unique values.
+
+```sql
+SELECT
+DISTINCT game
+FROM stream
+```
+---
+
+5. What are the `DISTINCT` `channel`s in the `stream` table?
+---
+The `DISTINCT` keyword is an optional clause of the `SELECT` statement and allows to select unique values.
+
+```sql
+SELECT
+DISTINCT channel
+FROM stream
+```
+---
+
+6. What are the most popular games in `stream`? Create a list of games and their number of viewers. `ORDER BY` from most popular to least popular.
+---
+To get the most popular games in `stream`, I selected the 'game' column then I used the `count` aggregate function and passed 'game' as an argument, which returned the number of viewers of each game. I used `GROUP BY` which automatically sorts the returned values in alphabetically order, but leaves the empty cells or NULL on top of the list.
+
+```sql
+SELECT game,
+count(game)
+FROM stream
+GROUP BY game
+```
+
+To order the list from most popular to least popular I used `ORDER BY` which automatically sorts the returned values in ascending order. I used the `DESC` keyword, as below, to sort in descending order.
+
+```sql
+SELECT game,
+count(game)
+FROM stream
+GROUP BY game
+ORDER BY count(game)
+DESC;
+```
+
+* Just for fun, to get the top-ten most popular games in the `stream` table I used the `LIMIT` keyword at the end of the query to specify how many records I wanted to have in return.
+
+```sql  
+SELECT game,
+count(game)
+FROM stream
+GROUP BY game
+ORDER BY count(game)
+DESC LIMIT 10;
+
+```
+---
+
+7. There are some big numbers from the game `League of Legends` in `stream`. Where are these `League of Legend players` located?
+
+    - **Hint:** Create a list.
+---
+First, I created a list of countries where they play the game `League of Legends`. I selected the `game` and `country` column from the `stream` table, then I added the  `WHERE` clause to get the values that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetically order.
+
+```sql
+SELECT game, country
+FROM stream
+WHERE game = 'League of Legends'  
+GROUP BY country;
+```
+* Just for fun, I used the `count` aggregate function to have the number of players in each country.
+
+```sql
+SELECT game, country,
+count(country)
+FROM stream
+WHERE game = 'League of Legends'  
+GROUP BY country;
+```
+* Then I sorted the countries from most to least viewers.
+
+```sql
+SELECT game, country,
+count(country)
+FROM stream
+WHERE game = 'League of Legends'  
+GROUP BY country
+ORDER BY count (country)
+DESC;
+```
+---
+
+8. The `player` column shows the source/device the viewer is using (site, iphone, android, etc). Create a list of players and their number of streamers.
+
+First, I created the list of the existing players/devices each with the number of streamers. Then, I sorted it from most number of streamers to least number of streamers.
+
+```sql
+SELECT player,
+count(player)
+FROM stream
+GROUP BY player
+ORDER BY count (player)
+DESC;
+```
+---
+
+9. Using a `CASE` statement, create a new column named `genre` for each of the games in `stream`. Group the games into their genres: Multiplayer Online Battle Arena (MOBA), First Person Shooter (FPS), and Others. Your logic should be: *If it is `League of Leagues` or `Dota 2` or `Heroes of the Storm` → then it is `MOBA`. If it is `Counter-Strike: Global Offensive` → then it is `FPS`. Else, it is `Others`.*
+
+    - **Hint:** Use `GROUP BY` and `ORDER BY` to showcase only the unique game titles.
+
+---
+```sql
+SELECT *,
+CASE game
+  WHEN 'League of Legends' THEN 'MOBA'  
+  WHEN 'Dota 2' THEN 'MOBA'  
+  WHEN 'Heroes of the Storm' THEN 'MOBA'
+  WHEN 'Counter-Strike: Global Offensive' THEN 'FPS'
+  ELSE 'Others'
+END
+AS genre
+FROM stream
+GROUP BY game
+ORDER BY genre  
+```
+---
+
+10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
+---
+```sql
+SELECT stream.game,
+stream.country,
+stream.player,
+stream.channel,
+stream.device_id as stream_device_id,
+chat.device_id as chat_device_id
+FROM stream
+INNER JOIN chat
+ON stream.device_id = chat.device_id;
+```
+**Bonus:** Now try to find some other interesting insights using SQL!
+
+- Other solution for question #6
+
+By using the asterisk as an argument of `count`, as below, it returns the number of rows in a table, including the rows that contain NULL values
+
+```sql
+SELECT game,
+count(*)
+FROM stream
+GROUP BY game
+ORDER BY count(*)
+DESC;
+```
