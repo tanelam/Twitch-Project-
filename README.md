@@ -1,10 +1,11 @@
 # 💥 👾 🎮 Twitch-Project 👾 🎮 💥
 
+ I used [DB Browser for SQLite](https://sqlitebrowser.org/) for this assignment, for its flexibility to manipulate database files compatible with SQLite.
+
 ## Table of Contents
 
 * [Solution](https://github.com/tanelam/Twitch-Project-#solution)
 * [References](https://github.com/tanelam/Twitch-Project-#references)
-
 
 ## Solution
 
@@ -187,7 +188,7 @@ ORDER BY genre
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
 
-*In this function, I used `INNER JOIN` to link data between the two tables, which are associated using foreign keys, in this case we have 'device_id'. Using the `SELECT` keyword I selected the columns from the tables that I want to query data from. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
+*In this function, I used `INNER JOIN` to link data between the two tables based on a common column between them 'device_id'. Using the `SELECT` keyword I specified the columns from the tables that I want to query data from. I used the table_name.column_name notation to grab columns from two different tables. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. I join the tables with the `INNER JOIN` clause  which returns rows from the `stream` table that has the corresponding row in the `chat` table.*
 
 ```sql
 SELECT
@@ -204,7 +205,6 @@ ON stream.device_id = chat.device_id;
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/10.jpg)
 
 ---
-**Bonus:** Now try to find some other interesting insights using SQL!
 
 - Other solution for question #6
 
@@ -219,6 +219,45 @@ ORDER BY count(*)
 DESC;
 ```
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus.jpg)
+---
+
+**Bonus:** Now try to find some other interesting insights using SQL!
+
+- You can create your own table with `CREATE TABLE` keyword followed by the name of the table and passing as arguments the name of the columns and the datatype for each.
+
+```sql
+CREATE TABLE cats (
+id INTEGER PRIMARY KEY,
+name TEXT,
+age INTEGER,
+breed TEXT);
+```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus2A.jpg)
+
+- And add values by using the `INSERT INTO` and `VALUES` keywordS.
+```sql
+INSERT INTO cats
+  (name, age, breed)
+VALUES
+  ("Luca", 4, "Scottish Fold");
+
+INSERT INTO cats
+  (name, age, breed)
+VALUES
+  ("Tama", 8, "Grey Cat");
+
+INSERT INTO cats
+  (name, age, breed)
+VALUES
+  ("Kodi", 3, "White Cat");
+
+INSERT INTO cats
+  (name, age, breed)
+VALUES
+  ("Ukulele", 3, "Scottish Fold");
+
+```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus2B.jpg)
 ---
 
 ## References
@@ -236,3 +275,5 @@ Here are the places where I looked and referenced to support my solutions.
 - [GeeksForGeeks - Case Statement](https://www.geeksforgeeks.org/sql-case-statement/)
 
 - [SQL Joins](https://www.w3schools.com/sql/sql_join.asp)
+
+- [BD Browser for SQLite](https://sqlitebrowser.org/)
