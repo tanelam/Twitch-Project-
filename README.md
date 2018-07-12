@@ -24,11 +24,13 @@ SELECT *
 FROM chat
 LIMIT 20;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/2.jpg)
+
 ---
 
 3. There is something wrong with the `chat` table. Its 1st row is actually the column names. Delete the first row of the `chat` table.
 
-*First, I specified the table where I wanted to remove the row from, in this case, the table is `chat`. Then, I added a search condition `WHERE` and specified which row to remove. I used `WHERE time = 'time'` because the values in the column 'time' are numbers and it was easier to check against the "time" string.*
+*First, I specified the table where I wanted to remove the row from, in this case, the table is `chat`. Then, I added a search condition `WHERE` and specified which row to remove. I used `WHERE time = 'time'` because the values in the column 'time' are in `datetime` format and it was easier to check against the "time" string.*
 
 ```sql
 DELETE
@@ -170,15 +172,16 @@ ORDER BY genre
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
 
-*In this function, I used `INNER JOIN` to query data from the two tables, which are associated using foreign keys, in this case we have 'device_id'. Using `SELECT` keyword I selected the columns from the tables that I want to have in my join table. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
+*In this function, I used `INNER JOIN` to link data between the two tables, which are associated using foreign keys, in this case we have 'device_id'. Using the `SELECT` keyword I selected the columns from the tables that I want to query data from. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
 
 ```sql
-SELECT stream.game,
-stream.country,
-stream.player,
-stream.channel,
-stream.device_id as stream_device_id,
-chat.device_id as chat_device_id
+SELECT
+  stream.game,
+  stream.country,
+  stream.player,
+  stream.channel,
+  stream.device_id as stream_device_id,
+  chat.device_id as chat_device_id
 FROM stream
 INNER JOIN chat
 ON stream.device_id = chat.device_id;
