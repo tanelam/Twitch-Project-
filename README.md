@@ -134,7 +134,7 @@ GROUP BY country
 ORDER BY count (country)
 DESC;
 ```
-![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/7B.jpg)
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/7C.jpg)
 ---
 
 8. The `player` column shows the source/device the viewer is using (site, iphone, android, etc). Create a list of players and their number of streamers.
