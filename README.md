@@ -37,6 +37,7 @@ DELETE
 FROM chat
 WHERE time = 'time'
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/3.jpg)
 ---
 
 4. What are the `DISTINCT` `game` in the `stream` table?
@@ -46,6 +47,9 @@ SELECT
 DISTINCT game
 FROM stream
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/4A.jpg)
+
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/4B.jpg)
 ---
 
 5. What are the `DISTINCT` `channel`s in the `stream` table?
