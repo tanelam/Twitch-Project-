@@ -59,6 +59,7 @@ SELECT
 DISTINCT channel
 FROM stream
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/5.jpg)
 ---
 
 6. What are the most popular games in `stream`? Create a list of games and their number of viewers. `ORDER BY` from most popular to least popular.
@@ -71,6 +72,7 @@ count(game)
 FROM stream
 GROUP BY game
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/6A.jpg)
 
 *To order the list from most popular to least popular I used `ORDER BY` which by default sorts the returned values in ascending order. I used the `DESC` keyword, as below, to sort in descending order.*
 
@@ -82,6 +84,7 @@ GROUP BY game
 ORDER BY count(game)
 DESC;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/6B.jpg)
 
   * *Just for fun, to get the top-ten most popular games in the `stream` table I used the `LIMIT` keyword at the end of the query to specify the number of records I wanted to have in return.*
 
@@ -94,6 +97,7 @@ ORDER BY count(game)
 DESC LIMIT 10;
 
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/6C.jpg)
 ---
 
 7. There are some big numbers from the game `League of Legends` in `stream`. Where are these `League of Legend players` located?
@@ -108,6 +112,8 @@ FROM stream
 WHERE game = 'League of Legends'  
 GROUP BY country;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/7A.jpg)
+
   * *Just for fun, I used the `count` aggregate function to have the number of players in each country.*
 
 ```sql
@@ -128,6 +134,7 @@ GROUP BY country
 ORDER BY count (country)
 DESC;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/7B.jpg)
 ---
 
 8. The `player` column shows the source/device the viewer is using (site, iphone, android, etc). Create a list of players and their number of streamers.
