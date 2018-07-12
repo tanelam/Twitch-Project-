@@ -94,7 +94,7 @@ DESC LIMIT 10;
 
     - **Hint:** Create a list.
 
-*First, I created a list of countries where they play the game `League of Legends`. I selected the `game` and `country` column from the `stream` table, then I added the  `WHERE` clause to get the values that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetical order.*
+*In this function, I created a list of countries where the game `League of Legends` is played. First, I selected the `game` and `country` columns from the `stream` table, then I added the `WHERE` clause to get the values that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetical order.*
 
 ```sql
 SELECT game, country
