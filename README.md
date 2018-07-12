@@ -6,6 +6,7 @@
 
 * [Solution](https://github.com/tanelam/Twitch-Project-#solution)
 * [References](https://github.com/tanelam/Twitch-Project-#references)
+* [Bonus](https://github.com/tanelam/Twitch-Project-#bonus)
 
 ## Solution
 
@@ -75,7 +76,7 @@ GROUP BY game
 ```
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/6A.jpg)
 
-*To order the list from most popular to least popular I used `ORDER BY` which by default sorts the returned values in ascending order. I used the `DESC` keyword, as below, to sort in descending order.*
+*To organize the list from most popular to least popular I used `ORDER BY` which by default sorts the returned values in ascending order. I used the `DESC` keyword, as below, to sort in descending order.*
 
 ```sql
 SELECT game,
@@ -203,7 +204,7 @@ ORDER BY genre
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
 
-*In this function, I used `INNER JOIN` to link data between the two tables based on a common column between them 'device_id'. Using the `SELECT` keyword I specified the columns from the tables that I want to query data from. I used the table_name.column_name notation to grab columns from two different tables. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. I join the tables with the `INNER JOIN` clause  which returns rows from the `stream` table that has the corresponding row in the `chat` table.*
+*In this function, I used `INNER JOIN` to link data between the two tables based on a common column between them 'device_id'. Using the `SELECT` keyword I specified the columns from the tables that I wanted to query data from. I used the table_name.column_name notation to grab columns from two different tables. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. I join the tables with the `INNER JOIN` clause  which returns rows from the `stream` table that has the corresponding row in the `chat` table.*
 
 ```sql
 SELECT
@@ -235,7 +236,7 @@ breed TEXT);
 ```
 ![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus2A.jpg)
 
-- And add values by using the `INSERT INTO` and `VALUES` keywordS.
+- And add values by using the `INSERT INTO` and `VALUES` keywords.
 ```sql
 INSERT INTO cats
   (name, age, breed)
