@@ -126,7 +126,7 @@ DESC;
 
 8. The `player` column shows the source/device the viewer is using (site, iphone, android, etc). Create a list of players and their number of streamers.
 
-*First, I created the list of the existing players/devices with its number of streamers using the `count` function and passed player as an argument. Then, I sorted them from most to least using `ORDER BY` with the aggregate function `count` and the `DESC` keyword.*
+*First, I created the list of the existing players/devices with its number of streamers using the `count` function and passed player as an argument. Then, I grouped them by `player`. I love to organize everything 🙈, so I sorted the return records from most to least number of streamers, using `ORDER BY` with the aggregate function `count` and the `DESC` keyword .*
 
 ```sql
 SELECT player,
@@ -161,6 +161,8 @@ ORDER BY genre
 ---
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
+
+*In this function, I used `INNER JOIN` to query data from the two tables, a table is associated with another table using a foreign key, in this case we have 'device_id'. Using `SELECT` keyword I selected the columns from the tables that I want to have in my join table. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
 
 ```sql
 SELECT stream.game,
