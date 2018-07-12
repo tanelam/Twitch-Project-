@@ -1,9 +1,9 @@
-👾 🎮 # Twitch-Project 👾 🎮
+# 👾 🎮 Twitch-Project 👾 🎮
 
 ## Table of Contents
 
-* Solution
-* References
+* [Solution](https://github.com/tanelam/Twitch-Project-#solution)
+* [References](https://github.com/tanelam/Twitch-Project-#references)
 
 
 ## Solution
@@ -189,3 +189,15 @@ GROUP BY game
 ORDER BY count(*)
 DESC;
 ```
+
+## References
+
+Here are the places where I referenced to support my solutions.
+
+- [SQLite Tutorial](http://www.sqlitetutorial.net/)
+
+- [SQL Clauses - Aggregate Functions](http://www.sqlclauses.com/sql+aggregate+functions)
+
+- [w3schools - Order By](https://www.w3schools.com/sql/sql_orderby.asp)
+
+- [GeeksForGeeks - Case Statement](https://www.geeksforgeeks.org/sql-case-statement/)
