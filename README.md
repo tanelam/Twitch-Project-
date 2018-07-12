@@ -28,7 +28,7 @@ LIMIT 20;
 
 3. There is something wrong with the `chat` table. Its 1st row is actually the column names. Delete the first row of the `chat` table.
 
-*First, I specified the table where I wanted to remove the row, in this case, the table is `chat`. Then, I added a search condition `WHERE` and I specified which row to remove. In this case, I used `WHERE time = 'time'` because the values of the column 'time' are numbers and it was easier to check against the "time" string and not delete any other by accident.*
+*First, I specified the table where I wanted to remove the row from, in this case, the table is `chat`. Then, I added a search condition `WHERE` and specified which row to remove. I used `WHERE time = 'time'` because the values in the column 'time' are numbers and it was easier to check against the "time" string.*
 
 ```sql
 DELETE
@@ -94,7 +94,7 @@ DESC LIMIT 10;
 
     - **Hint:** Create a list.
 
-*In this function, I created a list of countries where the game `League of Legends` is played. First, I selected the `game` and `country` columns from the `stream` table, then I added the `WHERE` clause to get the values that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetical order.*
+*In this function, I created a list of countries where the game `League of Legends` is played. First, I selected the `game` and `country` columns from the `stream` table, then I added the `WHERE` clause to get the records that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetical order.*
 
 ```sql
 SELECT game, country
@@ -126,7 +126,15 @@ DESC;
 
 8. The `player` column shows the source/device the viewer is using (site, iphone, android, etc). Create a list of players and their number of streamers.
 
-*First, I created the list of the existing players/devices with its number of streamers using the `count` function and passed player as an argument. Then, I grouped them by `player`. I love to organize everything 🙈, so I sorted the return records from most to least number of streamers, using `ORDER BY` with the aggregate function `count` and the `DESC` keyword .*
+*In this function, I created a list of the existing players/devices each with their number of streamers using the `count` function and passed `player` as an argument. Then, I grouped them by `player`.*
+
+```sql
+SELECT player,
+count(player)
+FROM stream
+GROUP BY player
+```
+* *I love to organize everything 🙈, so I sorted the return records from most to least number of streamers, using `ORDER BY` with the aggregate function `count` and the `DESC` keyword .*
 
 ```sql
 SELECT player,
@@ -162,7 +170,7 @@ ORDER BY genre
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
 
-*In this function, I used `INNER JOIN` to query data from the two tables, the tables are associated using foreign keys, in this case we have 'device_id'. Using `SELECT` keyword I selected the columns from the tables that I want to have in my join table. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
+*In this function, I used `INNER JOIN` to query data from the two tables, which are associated using foreign keys, in this case we have 'device_id'. Using `SELECT` keyword I selected the columns from the tables that I want to have in my join table. Also, I rename the column `device_id` from both tables to have a better picture of combination of data. The `INNER JOIN` clause returns rows from the `stream` table that has the corresponding row in the `chat` table.*
 
 ```sql
 SELECT stream.game,
