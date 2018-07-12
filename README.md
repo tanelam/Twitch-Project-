@@ -147,6 +147,8 @@ count(player)
 FROM stream
 GROUP BY player
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/8A.jpg)
+
 * *I love to organize everything 🙈, so I sorted the return records from most to least number of streamers, using `ORDER BY` with the aggregate function `count` and the `DESC` keyword .*
 
 ```sql
@@ -157,6 +159,7 @@ GROUP BY player
 ORDER BY count (player)
 DESC;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/8B.jpg)
 ---
 
 9. Using a `CASE` statement, create a new column named `genre` for each of the games in `stream`. Group the games into their genres: Multiplayer Online Battle Arena (MOBA), First Person Shooter (FPS), and Others. Your logic should be: *If it is `League of Leagues` or `Dota 2` or `Heroes of the Storm` → then it is `MOBA`. If it is `Counter-Strike: Global Offensive` → then it is `FPS`. Else, it is `Others`.*
@@ -179,6 +182,7 @@ FROM stream
 GROUP BY game
 ORDER BY genre  
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/9.jpg)
 ---
 
 10. The `stream` table and the `chat` table share a column: `device_id`. Do a `JOIN` of the two tables on that column.
@@ -197,6 +201,9 @@ FROM stream
 INNER JOIN chat
 ON stream.device_id = chat.device_id;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/10.jpg)
+
+---
 **Bonus:** Now try to find some other interesting insights using SQL!
 
 - Other solution for question #6
@@ -211,6 +218,8 @@ GROUP BY game
 ORDER BY count(*)
 DESC;
 ```
+![alt text](https://github.com/tanelam/Twitch-Project-/blob/master/images/Bonus.jpg)
+---
 
 ## References
 
