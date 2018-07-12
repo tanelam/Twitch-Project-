@@ -28,7 +28,7 @@ LIMIT 20;
 
 3. There is something wrong with the `chat` table. Its 1st row is actually the column names. Delete the first row of the `chat` table.
 
-First, I specified the table where I wanted to remove the row, in this case, the table is `chat`. Then, I added a search condition `WHERE` and I specified which row to remove. In this case, I used `WHERE time = 'time'` in order to be more specific because the values of the column 'time' are numbers and it was easier to check against the "time" string and not delete any others by accident.
+*First, I specified the table where I wanted to remove the row, in this case, the table is `chat`. Then, I added a search condition `WHERE` and I specified which row to remove. In this case, I used `WHERE time = 'time'` in order to be more specific because the values of the column 'time' are numbers and it was easier to check against the "time" string and not delete any others by accident.*
 
 ```sql
 DELETE
@@ -39,7 +39,7 @@ WHERE time = 'time'
 
 4. What are the `DISTINCT` `game` in the `stream` table?
 
-The `DISTINCT` keyword is an optional clause of the `SELECT` statement and allows to select unique values.
+*The `DISTINCT` keyword is an optional clause of the `SELECT` statement and allows to select unique values.*
 
 ```sql
 SELECT
@@ -50,7 +50,7 @@ FROM stream
 
 5. What are the `DISTINCT` `channel`s in the `stream` table?
 
-The `DISTINCT` keyword is an optional clause of the `SELECT` statement and allows to select unique values.
+*The `DISTINCT` keyword is an optional clause of the `SELECT` statement and allows to select unique values.*
 
 ```sql
 SELECT
@@ -61,7 +61,7 @@ FROM stream
 
 6. What are the most popular games in `stream`? Create a list of games and their number of viewers. `ORDER BY` from most popular to least popular.
 
-To get the most popular games in `stream`, I selected the 'game' column then I used the `count` aggregate function and passed 'game' as an argument, which returned the number of viewers of each game. I used `GROUP BY` which automatically sorts the returned values in alphabetically order, but leaves the empty cells or NULL on top of the list.
+*To get the most popular games in `stream`, I selected the 'game' column then I used the `count` aggregate function and passed 'game' as an argument, which returned the number of viewers of each game. I used `GROUP BY` which automatically sorts the returned values in alphabetically order, but leaves the empty cells or NULL on top of the list.*
 
 ```sql
 SELECT game,
@@ -70,7 +70,7 @@ FROM stream
 GROUP BY game
 ```
 
-To order the list from most popular to least popular I used `ORDER BY` which automatically sorts the returned values in ascending order. I used the `DESC` keyword, as below, to sort in descending order.
+*To order the list from most popular to least popular I used `ORDER BY` which automatically sorts the returned values in ascending order. I used the `DESC` keyword, as below, to sort in descending order.*
 
 ```sql
 SELECT game,
@@ -81,7 +81,7 @@ ORDER BY count(game)
 DESC;
 ```
 
-* Just for fun, to get the top-ten most popular games in the `stream` table I used the `LIMIT` keyword at the end of the query to specify how many records I wanted to have in return.
+* *Just for fun, to get the top-ten most popular games in the `stream` table I used the `LIMIT` keyword at the end of the query to specify how many records I wanted to have in return.*
 
 ```sql  
 SELECT game,
@@ -98,7 +98,7 @@ DESC LIMIT 10;
 
     - **Hint:** Create a list.
 
-First, I created a list of countries where they play the game `League of Legends`. I selected the `game` and `country` column from the `stream` table, then I added the  `WHERE` clause to get the values that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetically order.
+*First, I created a list of countries where they play the game `League of Legends`. I selected the `game` and `country` column from the `stream` table, then I added the  `WHERE` clause to get the values that matched the `League of Legends` in the `game` column. Finally, I grouped them by country which automatically sorts the returned values in alphabetically order.*
 
 ```sql
 SELECT game, country
@@ -106,7 +106,7 @@ FROM stream
 WHERE game = 'League of Legends'  
 GROUP BY country;
 ```
-* Just for fun, I used the `count` aggregate function to have the number of players in each country.
+* *Just for fun, I used the `count` aggregate function to have the number of players in each country.*
 
 ```sql
 SELECT game, country,
@@ -115,7 +115,7 @@ FROM stream
 WHERE game = 'League of Legends'  
 GROUP BY country;
 ```
-* Then I sorted the countries from most to least viewers.
+* *Then I sorted the countries from most to least viewers.*
 
 ```sql
 SELECT game, country,
@@ -130,7 +130,7 @@ DESC;
 
 8. The `player` column shows the source/device the viewer is using (site, iphone, android, etc). Create a list of players and their number of streamers.
 
-First, I created the list of the existing players/devices each with the number of streamers. Then, I sorted it from most number of streamers to least number of streamers.
+*First, I created the list of the existing players/devices each with the number of streamers. Then, I sorted it from most number of streamers to least number of streamers.*
 
 ```sql
 SELECT player,
@@ -192,7 +192,7 @@ DESC;
 
 ## References
 
-Here are the places where I referenced to support my solutions.
+Here are the places where I looked and referenced to support my solutions.
 
 - [SQLite Tutorial](http://www.sqlitetutorial.net/)
 
@@ -201,3 +201,5 @@ Here are the places where I referenced to support my solutions.
 - [w3schools - Order By](https://www.w3schools.com/sql/sql_orderby.asp)
 
 - [GeeksForGeeks - Case Statement](https://www.geeksforgeeks.org/sql-case-statement/)
+
+- [Essntial SQL - Using Conditional Logic In SQL With CASE Expression](https://www.essentialsql.com/using-conditional-logic-in-sql-with-case-expression/)
